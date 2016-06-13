@@ -1,0 +1,43 @@
+.start {
+    text-align: center;
+}
+
+.start img {
+    width: 400px;
+}
+
+.start {
+    width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.start button {
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+}
+
+.hands img {
+    width: 100px;
+    margin: 20px auto;
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
+
+.start {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.7s ease-out;
+}
+
+.hands .active1 {
+    outline: 10px dotted gray;
+}
+
+.hands .active2 {
+    background-color: deepskyblue;
+}

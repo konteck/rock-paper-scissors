@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors Lizard Spock!</title>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Rock-Paper-Scissors-Lizard-Spock!</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li style="display: none"><a href="/">Start New Game</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="panel panel-default start display-none-">
+        <img class="img-circle" src="/img/noun_216876_cc.png"/>
+
+        <button class="btn btn-primary" id="start_computer">Computer vs Computer</button>
+        <button class="btn btn-primary" id="start_player" data-toggle="modal" data-target="#nameModal">Player vs Computer</button>
+        <button class="btn btn-info" data-toggle="modal" data-target="#winnersModal">Show Scoreboard</button>
+        <input type="checkbox" id="extended"/> Extended Version
+        <br/>
+        <br/>
+    </div>
+
+    <div class="row game display-none">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Rules</h1>
+                </div>
+                <div class="panel-body">
+                    Rock crushes Lizard<br/>
+                    Rock crushes Scissors<br/>
+                    Paper covers Rock<br/>
+                    Paper Disproves Spock<br/>
+                    Scissors cuts Paper<br/>
+                    Scissors decapitates Lizard<br/>
+                    Lizard eats Paper<br/>
+                    Lizard poisons Spock<br/>
+                    Spock smashes Scissors<br/>
+                    Spock vaporizes Rock<br/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row hands">
+                <div class="col-md-4">
+                    <img data-type="Rock" src="/img/noun_88661_cc.png"/>
+                </div>
+                <div class="col-md-4">
+                    <img data-type="Paper" src="/img/noun_88662_cc.png"/>
+                </div>
+                <div class="col-md-4">
+                    <img data-type="Scissors" src="/img/noun_88666_cc.png"/>
+                </div>
+            </div>
+            <div class="row hands extended_hands">
+                <div class="col-md-6">
+                    <img data-type="Spock" src="/img/noun_88664_cc.png"/>
+                </div>
+                <div class="col-md-6">
+                    <img data-type="Lizard" src="/img/noun_88663_cc.png"/>
+                </div>
+            </div>
+            <div class="row results"></div>
+        </div>
+
+        <br/>
+        <br/>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="nameModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Player Name</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name"><span class="glyphicon glyphicon-user"></span> Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Start</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove"></span> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="winnersModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Winners</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove"></span> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
